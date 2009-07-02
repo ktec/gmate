@@ -39,7 +39,7 @@ class FileMonitor(object):
             FileProcessEvent(self)).start()
 
         # initial walk
-        self.add_dir(self._root)
+        # self.add_dir(self._root)
 
     def _set_ignore_list(self):
         log.info("[FileMonitor] Set Regexs for Ignore List")
