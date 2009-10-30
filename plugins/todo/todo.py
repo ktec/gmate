@@ -240,8 +240,8 @@ def parse_directory(root):
             font-family: "bitstream vera sans mono", "sans-serif";
             padding: 0;
             margin: 0;
-            width: 700px;
-            height: 500px;
+            min-width: 700px;
+            min-height: 500px;
         }
 
         th {
@@ -264,7 +264,7 @@ def parse_directory(root):
 
         table {
             border-collapse: collapse;
-            width: 650px;
+            min-width: 650px;
         }
 
         td,th {
@@ -299,7 +299,7 @@ def parse_directory(root):
 
         #page {
             overflow: auto;
-            height: 406px;
+            min-height: 406px;
             padding: 0 15px 20px 15px;
             position: relative;
         }
@@ -351,24 +351,25 @@ def parse_directory(root):
 
         #container {
             position: relative;
-            background: url(${todo_header}) repeat-x;
+            background: #fff;
         }
-
-        #gears {
-            float : right;
-            margin : 0 0 0 0;
+        
+        #header {
+            background: -webkit-gradient(linear, left top, left bottom, from(#003d53), to(#fff),
+              color-stop(0.4, #00445c), color-stop(0.9, #002431), color-stop(0.95, #003143), color-stop(0.95, #888288));
         }
-
+        
         </style>
     </head>
     <body>
     <div id="container">
-    <img src="${todo_gears}" id="gears" />
-    <h1>TODO List</h1>
-    <p id="root">${root}</p>
-    <div id="page">
-        ${html}
-    </div>
+      <div id="header">
+        <h1>TODO List</h1>
+        <p id="root">${root}</p>
+      </div>
+      <div id="page">
+          ${html}
+      </div>
     </div>
     </body>
     </html>
