@@ -1,6 +1,6 @@
 #!/bin/sh
 # Kill all runing instances if exists
-#killall gedit
+# killall gedit
 
 # Register rails-related mime types
 sudo cp mime/rails.xml /usr/share/mime/packages
@@ -43,7 +43,7 @@ fi
 cp styles/* ~/.gnome2/gedit/styles
 
 # Ask for Python-Webkit package
-sudo apt-get install python-webkitgtk
+sudo apt-get install python-webkit
 
 echo -n "Do you want to activate default plugin and configuration set? [y,N]:"
 read answer
