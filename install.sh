@@ -4,17 +4,21 @@
 
 # Register rails-related mime types
 sudo cp mime/rails.xml /usr/share/mime/packages
+sudo cp mime/php.xml   /usr/share/mime/packages
+
 # Copy language definitions
 sudo cp lang-specs/*.lang /usr/share/gtksourceview-2.0/language-specs/
+
 # Copy Gmate executable
-sudo mkdir -p /usr/share/gedit-2/gmate
-sudo cp gmate.py /usr/share/gedit-2/gmate/gmate.py
+#sudo mkdir -p /usr/share/gedit-2/gmate
+#sudo cp gmate.py /usr/share/gedit-2/gmate/gmate.py
+
 # Copy Tags
-if [ ! -d /usr/share/gedit-2/plugins/taglist/ ]
-then
-  sudo mkdir -p /usr/share/gedit-2/plugins/taglist/
-fi
-sudo cp tags/*.tags.gz /usr/share/gedit-2/plugins/taglist/
+#if [ ! -d /usr/share/gedit-2/plugins/taglist/ ]
+#then
+#  sudo mkdir -p /usr/share/gedit-2/plugins/taglist/
+#fi
+#sudo cp tags/*.tags.gz /usr/share/gedit-2/plugins/taglist/
 
 # Update mime type database
 sudo update-mime-database /usr/share/mime
@@ -24,6 +28,7 @@ if [ ! -d $HOME/.gnome2/gedit ]
 then
   mkdir -p ~/.gnome2/gedit
 fi
+
 # Copy Snippets
 if [ ! -d $HOME/.gnome2/gedit/snippets ]
 then
@@ -45,12 +50,14 @@ then
 fi
 cp styles/* ~/.gnome2/gedit/styles
 
+# Config for autocomplete
+mv ~/.gnome2/gedit/plugins/autocomplete_settings.xml ~/.gnome2/gedit
+
 # Ask for Python-Webkit package
 sudo apt-get install python-webkit
 
 # Execute debian postins script
-
-`sudo sh ./debian/postinst`
+#`sudo sh ./debian/postinst`
 
 echo -n "Do you want to activate default plugin and configuration set? [y,N]:"
 read answer
@@ -66,7 +73,7 @@ case "$answer" in
         `gconftool-2 --set /apps/gedit-2/preferences/editor/right_margin/right_margin_position -t int 80`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/colors/scheme -t str twilight`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/insert_spaces -t bool true`
-        `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/tabs_size -t int 4`
+        `gconftool-2 --set /apps/gedit-2/preferences/editor/tabs/tabs_size -t int 2`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/wrap_mode/wrap_mode -t str GTK_WRAP_NONE`
         `gconftool-2 --set /apps/gedit-2/preferences/editor/save/create_backup_copy -t bool false`
         echo "Configuration set."
