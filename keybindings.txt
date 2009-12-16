@@ -53,7 +53,7 @@ Plugins Keystrokes
 
 Regex Search and Replace
 ------------------------
-CTRL+SHIFT+H => Open Search and Relpace by regex dialog
+CTRL+SHIFT+H => Open Search and Replace by regex dialog
 
 Code Comment
 ------------
@@ -63,6 +63,10 @@ CTRL+SHIFT+M => Uncomment selected region
 Snippets
 --------
 Enter the snippet acellerator than Press TAB.
+
+Zen Coding
+----------
+CTRL+E => Expand Zen Code template
 
 Spell Checker
 -------------
@@ -81,6 +85,10 @@ ALT+ARROWDOWN => Move current line down
 CTRL+ALT+9    => Select text enclosed by Pairs Ex: ({"['<
 ALT+W         => Select Word
 ALT+SHIFT+W   => Select Word Special (Ignoring delimiters)
+
+Multi-edit
+----------
+CTRL+R => Add single mark
 
 Snap Open ( Go to File )
 ------------------------
@@ -136,4 +144,3 @@ V  => Open the view directory
 Align...
 --------
 ALT+SHIFT+A => Align Selected text in columns by a given separator.
-

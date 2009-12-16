@@ -9,11 +9,11 @@ rails-related files.
 === Ubuntu Karmic
 1. Add Ubuntu on Rails PPA in System → Administration → Software Sources on
    Third Party Software tab:
-   
+
      ppa:ubuntu-on-rails/ppa
-   
+
 2. Install gedit-gmate package:
-   
+
      $ sudo apt-get install gedit-gmate
 
 === Other Linux
@@ -24,11 +24,11 @@ rails-related files.
 
      $ git clone git://github.com/lexrupy/gmate.git
      $ cd gmate
-  
+
 4. And run install script:
 
      $ sh install.sh
-   
+
    <b>Note:</b> Some commands will expect you enter your sudo password.
 
 == Gmate package include
@@ -53,8 +53,9 @@ rails-related files.
 * Word Completion – Word completion plugin.
 * Gedit Go To File – Yet Another Go to File plugin Just Like SnapOpen and
   GeditOpenFiles also based in Textmate Go to file.
-* Multi Edit – Check it out at author's page
-  http://jon-walsh.com/journal/multi-edit
+* Multi Edit – Check it out at author's page http://jon-walsh.com/journal/multi-edit
+* Pastie - Paste a selection of code or a source file to pastie.org directly from editor http://github.com/ivyl/gedit-pastie
+* Zen Coding – Zen HTML http://www.kryogenix.org/days/2009/09/21/zen-coding-for-gedit
 
 <b>Note:</b> In order to use Go to File feature you need to choose just one of:
 GeditGoToFile, SnapOpen or GeditOpenFiles. Multi Edit plugin is not enabled by
@@ -130,6 +131,7 @@ default Gmate instalation.
 * PlasticCodeWrap (Converted from Textmate)
 * Plum Dump (Converted from Textmate)
 * Railscasts (Converted from Textmate)
+* Railscasts Improved
 * RDark (Converted from Textmate)
 * Ruby Blue (Converted from Textmate)
 * Rubycius
@@ -205,3 +207,4 @@ please fill an issue in http://github.com/lexrupy/gmate/issues
 
 Refer to each plugin source code and readme file to get information about
 specific plugin licencing and copyright.
+
