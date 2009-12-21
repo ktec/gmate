@@ -19,6 +19,7 @@
 
 import pygtk
 import gtk, gobject, pango
+import gconf
 import sexy
 import relevance
 import os
@@ -116,13 +117,25 @@ class GotoFileWindow(gtk.Window):
 			print "async walker not available"
 			import moonwalk
 			self._walker = moonwalk.MoonWalker(self._onWalkResult, self._onWalkClear, self._onWalkFinish)
-
+	
+	# Taken from GeditOpenFilesPlugin by Vitaly Babiy <vbabiy86@gmail.com>
+	# http://geditopenfiles.uservoice.com/
+	def _getRootFromFilebrowser(self):
+		base = u'/apps/gedit-2/plugins/filebrowser/on_load'
+		client = gconf.client_get_default()
+		client.add_dir(base, gconf.CLIENT_PRELOAD_NONE)
+		val = client.get(os.path.join(base, u'virtual_root'))
+		if val is not None:
+			root = val.get_string().replace("file://", "")
+		else:
+			root = self._plugin.getRootDirectory()
+		return root
+	
 	def _windowShow(self, win):
-		self._rootDirectory = self._plugin.getRootDirectory()
-		self._entry.set_text('')
+		self._rootDirectory = self._getRootFromFilebrowser()
 		self._entry.grab_focus()
 		self._expander.set_expanded(False)
-		self._search('')
+		self._search(self._entry.get_text())
 
 	def _windowDeleteEvent(self, win, event):
 		self._walker.cancel()
@@ -177,7 +190,7 @@ class GotoFileWindow(gtk.Window):
 			self._store.append((name, os.path.join(dirname, name), os.path.join(dirname, file), score))
 			total = self._store.iter_n_children(None)
 			if total == self._plugin.getMaxResults():
-				print "Max results reached",self._plugin.getMaxResults()
+#				print "Max results reached",self._plugin.getMaxResults()
 				walker.cancel()
 				break
 	
