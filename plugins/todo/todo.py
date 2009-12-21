@@ -299,7 +299,7 @@ def parse_directory(root):
 
         #page {
             overflow: auto;
-            min-height: 406px;
+            height: 406px;
             padding: 0 15px 20px 15px;
             position: relative;
         }
